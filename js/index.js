@@ -5,12 +5,14 @@ canvas.width = 600;
 canvas.height = 600;
 
 var title = new Title();
+var tank = new Tank();
 
 animation();
 
 function animation() {
     requestAnimationFrame(animation);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+
     title.draw();
+    tank.draw();
 }

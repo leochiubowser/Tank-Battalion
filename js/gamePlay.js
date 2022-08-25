@@ -1,6 +1,10 @@
 class gamePlay {
+    // static title = {
+    //     moving: true,
+    //     show: true
+    // }
     static title = {
-        moving: true,
-        show: true
+        moving: false,
+        show: false
     }
 }
