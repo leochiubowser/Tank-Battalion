@@ -9,6 +9,7 @@ class Tank {
             y: 0,
             speed: 1.5
         }
+        this.direction = "up";
         this.scale = 1;
     }
     draw() {
@@ -33,19 +34,24 @@ class Tank {
 
     move() {
 
+
         addEventListener("keydown", (e) => {
 
-            if (e.key == "ArrowUp") {
+            if (e.key == "ArrowUp" || e.key == "w" || e.key == "W") {
                 this.velocity.y = -this.velocity.speed;
+                this.direction = "up";
             }
-            else if (e.key == "ArrowDown") {
+            else if (e.key == "ArrowDown" || e.key == "s" || e.key == "S") {
                 this.velocity.y = this.velocity.speed;
+                this.direction = "down";
             }
-            else if (e.key == "ArrowLeft") {
+            else if (e.key == "ArrowLeft" || e.key == "a" || e.key == "A") {
                 this.velocity.x = -this.velocity.speed;
+                this.direction = "left";
             }
-            else if (e.key == "ArrowRight") {
-                this.velocity.x = this.velocity.speed
+            else if (e.key == "ArrowRight" || e.key == "d" || e.key == "D") {
+                this.velocity.x = this.velocity.speed;
+                this.direction = "right"
             }
         })
 
@@ -53,6 +59,14 @@ class Tank {
             this.velocity.x = 0;
             this.velocity.y = 0;
         })
+
+
+        // Avoid X and Y direction happened at the same time 
+
+        if (this.direction == "up" || this.direction == "down")
+            this.velocity.x = 0;
+        else if (this.direction == "left" || this.direction == "right")
+            this.velocity.y = 0;
 
         this.x += this.velocity.x;
         this.y += this.velocity.y;
