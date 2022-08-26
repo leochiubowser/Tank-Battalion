@@ -14,5 +14,7 @@ function animation() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     title.draw();
-    tank.draw();
+    if (gamePlay.title.show == false)
+        tank.draw();
+    
 }
