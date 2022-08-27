@@ -16,5 +16,6 @@ function animation() {
     title.draw();
     if (gamePlay.title.show == false)
         tank.draw();
+        bulletManager.draw();
     
 }
